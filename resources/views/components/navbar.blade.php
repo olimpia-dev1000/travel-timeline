@@ -18,13 +18,13 @@
             </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-            <a href="/travels/create" class="text-sm font-medium leading-6 ">Create travel</a>
+            <x-nav-link href="/travels/create" :active="request()->is('travels/create')">Create travel</x-nav-link>
             @auth
-            <a href="/travels" class="text-sm font-medium leading-6 ">My travel</a>
+            <x-nav-link href="/travels" :active="request()->is('travels')">My travels</x-nav-link>
             @endauth
-            {{-- <a href="/travels/inspirations" class="text-sm font-medium leading-6 ">Inspirations</a> --}}
             @auth
-            <a href="/users/change-password" class="text-sm font-medium leading-6">Change password</a>
+            <x-nav-link href="/users/change-password" :active="request()->is('users/change-password')">Change password
+            </x-nav-link>
             @endauth
         </div>
         <div class="flex flex-row items-center hidden lg:space-x-2 lg:flex lg:flex-1 lg:justify-end">
@@ -78,21 +78,22 @@
                 <div class="-my-6 divide-y divide-gray-500/10">
                     <div class="py-6 space-y-2">
 
-                        <a href="/travels/create"
-                            class="block px-3 py-2 -mx-3 text-base font-medium leading-7 text-gray-800 rounded-lg f hover:bg-gray-50">Create
-                            travel</a>
+                        <x-nav-link href="/travels/create" :active="request()->is('travels/create')" :mobileMenu="true">
+                            Create travel
+                        </x-nav-link>
                         @auth
-                        <a href="/travels"
-                            class="block px-3 py-2 -mx-3 text-base font-medium leading-7 text-gray-800 rounded-lg hover:bg-gray-50">My
-                            travel</a>
+                        <x-nav-link href="/travels" :active="request()->is('travels')" :mobileMenu="true">
+                            My travels
+                        </x-nav-link>
                         @endauth
                         {{-- <a href="/travels/inspiratons"
                             class="block px-3 py-2 -mx-3 text-base font-medium leading-7 text-gray-800 rounded-lg hover:bg-gray-50">Inspirations</a>
                         --}}
                         @auth
-                        <a href="/users/change-password"
-                            class="block px-3 py-2 -mx-3 text-base font-medium leading-7 text-gray-800 rounded-lg hover:bg-gray-50">Change
-                            password</a>
+                        <x-nav-link href="/users/change-password" :active="request()->is('users/change-password')"
+                            :mobileMenu="true">
+                            Change password
+                        </x-nav-link>
                         @endauth
 
 
